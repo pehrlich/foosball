@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>API Endpoints</title>
+  </head>
+  <body>
+    <h1>API Endpoints</h1>
+    <dl>
+      <dt>
+        <a href="/api/users.json">/api/users.json</a>
+      </dt>
+      <dd>
+        <p>A list of all users on the platform with the following attributes:</p>
+        <ul>
+          <li>id</li>
+          <li>name</li>
+          <li>wins</li>
+          <li>losses</li>
+        </ul>
+      </dd>
+      <dt>
+        <a href="/api/matches.json">/api/matches.json</a>
+      </dt>
+      <dd>
+        <p>A list of all matches with the following attributes:</p>
+        <ul>
+          <li>id</li>
+          <li>teamA - containing two user IDs</li>
+          <li>teamB - containing two user IDs</li>
+          <li>scoreA - teamA's score</li>
+          <li>scoreB - teamB's score</li>
+        </ul>
+      </dd>
+    </dl>
+  </body>
+</html>

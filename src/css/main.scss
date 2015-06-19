@@ -1,0 +1,560 @@
+/*********************
+      VARIABLES
+*********************/
+
+$background: #fff;
+$foreground: #323a4e;
+
+$header--background: #323a4e;
+$header--foreground: #fff;
+
+$section--borders: rgba(#323a4e, 0.1);
+$section--header--foreground: rgba(#323a4e, 0.7);
+
+$leaderboard--foreground: rgba(#323a4e, 0.5);
+$leaderboard--name--foreground: rgba(#323a4e, 0.8);
+$leaderboard--item--border: rgba(#323a4e, 0.1);
+$leaderboard--winner--background: rgba(#2f81f7, 0.1);
+$leaderboard--winner--border: #2f81f7;
+$leaderboard--winner--foreground: #2f81f7;
+$leaderboard--winner--counter--background: #2f81f7;
+$leaderboard--winner--counter--foreground: #fff;
+
+$button--yellow--border: #fedf57;
+$button--yellow--background: #fedf57;
+$button--yellow--foreground: #fff;
+$button--transparent--foreground: rgba(#323a4e, 0.5);
+$button--transparent--hover--foreground: rgba(#323a4e, 1);
+$button--transparent--hover--background: rgba(#323a4e, 0.1);
+
+$button--transparent--white--foreground: rgba(#fff, 0.8);
+$button--transparent--white--hover--foreground: #fff;
+$button--transparent--white--hover--background: rgba(#fff, 0.1);
+
+$recent-matches--match--background: rgba(#323a4e, 0.03);
+
+$match-details--team--header: rgba(#323a4e, 0.5);
+$match-details--team--winner--background: rgba(#2f81f7, 0.1);
+$match-details--team--winner--border: #2f81f7;
+$match-details--team--winner--foreground: #2f81f7;
+$match-details--vs--background: rgba(#323a4e, 0.5);
+$match-details--vs--foreground: #fff;
+
+
+/*********************
+        RESET
+*********************/
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*********************
+        MAIN
+*********************/
+
+body {
+    background: $background;
+}
+
+ul {
+    list-style: none;
+}
+
+
+/*********************
+        LAYOUT
+*********************/
+
+* {
+
+    &,
+    &:before,
+    &:after {
+        box-sizing: border-box;
+    }
+
+}
+
+html, body {
+    min-height: 100%;
+}
+
+.app {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    width: 100%;
+
+    &__heading,
+    &__section {
+        flex: 1;
+        padding: 25px 30px;
+    }
+
+    &__heading {
+        max-height: 75px;
+    }
+
+    &__details {
+        display: flex;
+        flex: 5;
+
+        @media screen and (max-width: 768px) {
+            flex-direction: column;
+        }
+
+    }
+
+}
+
+/*********************
+      TYPOGRAPHY
+*********************/
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600,700);
+
+body {
+    color: $foreground;
+    font-family: 'Open Sans', sans-serif;
+}
+
+input,
+button {
+    font-family: 'Open Sans', sans-serif;
+}
+
+/*********************
+      HEADING
+*********************/
+
+.heading {
+    background: $header--background;
+    color: $header--foreground;
+    font-size: 1.65em;
+    position: relative;
+
+    &__buttons {
+        font-size: 0.7em;
+        position: absolute;
+        right: 30px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+}
+
+/*********************
+      SECTION
+*********************/
+
+.app {
+
+    &__section {
+
+    }
+
+    &__header {
+        color: $section--header--foreground;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        margin-bottom: 30px;
+        position: relative;
+        text-transform: uppercase;
+
+        &__buttons {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+    }
+
+}
+
+/*********************
+    LEADERBOARD
+*********************/
+
+.leaderboard {
+
+    li,
+    &__labels {
+        display: flex;
+        margin: 15px 0;
+
+        span {
+            display: inline-block;
+            margin-left: 10px;
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+        }
+
+    }
+
+    &__list {
+        color: $leaderboard--foreground;
+        counter-reset: leaderboard;
+        list-style: decimal-leading-zero;
+
+        li {
+            border-top: 1px solid $leaderboard--item--border;
+            padding-top: 15px;
+            position: relative;
+
+            &:before {
+                border-radius: 30px;
+                content: counter(leaderboard);
+                counter-increment: leaderboard;
+                font-size: 0.75em;
+                height: 20px;
+                left: -8px;
+                line-height: 20px;
+                position: absolute;
+                text-align: center;
+                width: 20px;
+            }
+
+            &.is-in-lead {
+                margin-bottom: 0;
+                padding-bottom: 15px;
+
+                &:before {
+                    background: $leaderboard--winner--counter--background;
+                    border: none;
+                    color: $leaderboard--winner--counter--foreground;
+                    font-weight: bold;
+                    left: -10px;
+                }
+
+                & + li {
+                    margin-top: -1px;
+                }
+
+            }
+
+        }
+
+    }
+
+    &__labels {
+        font-size: 0.6em;
+        font-weight: 600;
+        text-transform: uppercase;
+
+        span {
+            color: $leaderboard--foreground;
+        }
+
+    }
+
+    &__name,
+    &__label--name {
+        color: $leaderboard--name--foreground;
+        flex: 5;
+    }
+
+    &__stats,
+    &__label--stats {
+        flex: 1;
+    }
+
+    &__name {
+        padding-left: 30px;
+    }
+
+}
+
+/*********************
+      BUTTONS
+*********************/
+
+.button {
+    border-radius: 60px;
+    padding: 10px 20px;
+    text-decoration: none;
+    transition: all 0.25s;
+
+    &--transparent {
+        border: 2px solid $button--transparent--hover--background;
+        color: $button--transparent--foreground;
+
+        &:hover {
+            background: $button--transparent--hover--background;
+            color: $button--transparent--hover--foreground;
+        }
+
+        &--white {
+            border: 2px solid $button--transparent--white--hover--background;
+            color: $button--transparent--white--foreground;
+
+            &:hover {
+                background: $button--transparent--white--hover--background;
+                color: $button--transparent--white--hover--foreground;
+            }
+
+        }
+
+    }
+
+}
+
+/*********************
+      FORM
+*********************/
+
+.textbox {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border: 2px solid $section--borders;
+    border-radius: 5px;
+    color: $match-details--team--winner--foreground;
+    display: block;
+    font-size: 1.15em;
+    outline: none;
+    padding: 10px 20px;
+    transition: all 0.25s;
+    width: 100%;
+
+    &:active,
+    &:focus {
+        background: $match-details--team--winner--background;
+        border: 2px solid $match-details--team--winner--border;
+    }
+
+}
+
+
+.form {
+
+    &__row {
+        display: block;
+        margin-top: 10px;
+    }
+
+    &__element {
+
+        label {
+            color: $match-details--team--header;
+            font-size: 0.7em;
+            font-weight: 600;
+            display: block;
+            text-transform: uppercase;
+        }
+
+    }
+
+}
+
+/*********************
+    RECENT MATCHES
+*********************/
+
+.recent-matches {
+    border-left: 2px solid $section--borders;
+
+    @media screen and (max-width: 768px) {
+        border-left: none;
+        border-top: 2px solid $section--borders;
+        padding-top: 40px;
+    }
+
+    .app {
+
+        &__header {
+            margin-bottom: 0;
+        }
+
+    }
+
+    .match-details {
+        border-bottom: 1px solid $section--borders;
+        margin: 0;
+        padding: 30px 0;
+        transition: all 0.25s;
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        &:hover {
+            background: $recent-matches--match--background;
+        }
+
+        &__team {
+            padding: 0;
+
+            &.is-winner {
+                background: none;
+                border: none;
+                padding: 0;
+            }
+
+        }
+
+    }
+
+}
+
+/*********************
+      HEADING
+*********************/
+
+.match-details {
+    color: inherit;
+    display: flex;
+    margin-top: 30px;
+    text-decoration: none;
+
+    &__vs,
+    &__team {
+        flex: 2;
+    }
+
+    &__vs {
+        flex: 1;
+        max-width: 150px;
+        min-width: 100px;
+        position: relative;
+
+        span {
+            background: $match-details--vs--background;
+            border-radius: 50px;
+            color: $match-details--vs--foreground;
+            height: 50px;
+            font-weight: bold;
+            left: 50%;
+            line-height: 50px;
+            position: absolute;
+            text-align: center;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+        }
+
+    }
+
+    &__team {
+        padding: 15px 0;
+
+        &.is-winner {
+             background: $match-details--team--winner--background;
+             border: 2px solid $match-details--team--winner--border;
+             color: $match-details--team--winner--foreground;
+             padding: 15px 30px;
+
+             .match-details__team__header,
+             .match-details__team__points {
+                 color: $match-details--team--winner--foreground;
+             }
+
+        }
+
+        &__header,
+        &__points {
+            color: $match-details--team--header;
+            font-size: 0.6em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        &__player {
+            display: block;
+            font-size: 24px;
+            margin: 10px 0;
+        }
+
+        &--a {
+            text-align: right;
+        }
+
+    }
+
+}
+
+/*********************
+      ADD MATCH
+*********************/
+
+.add-match {
+
+    &__team {
+
+        &__heading {
+            color: $match-details--team--header;
+            margin: 40px 0 20px 0;
+            font-weight: bold;
+            position: relative;
+
+            &__buttons {
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+
+                .button {
+                    font-size: 0.75em;
+                    font-weight: normal;
+                    padding: 5px 10px;
+                }
+
+            }
+
+        }
+
+    }
+
+}
+

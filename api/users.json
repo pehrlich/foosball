@@ -1,0 +1,86 @@
+[
+  {
+    "id": 0,
+    "name": "PG",
+    "wins": 1,
+    "losses": 7
+  },
+  {
+    "id": 1,
+    "name": "Michael",
+    "wins": 3,
+    "losses": 17
+  },
+  {
+    "id": 2,
+    "name": "John",
+    "wins": 12,
+    "losses": 2
+  },
+  {
+    "id": 3,
+    "name": "Ferdi",
+    "wins": 14,
+    "losses": 4
+  },
+  {
+    "id": 4,
+    "name": "Ben",
+    "wins": 15,
+    "losses": 13
+  },
+  {
+    "id": 5,
+    "name": "Felix",
+    "wins": 19,
+    "losses": 5
+  },
+  {
+    "id": 6,
+    "name": "Philip",
+    "wins": 3,
+    "losses": 15
+  },
+  {
+    "id": 7,
+    "name": "Rafael",
+    "wins": 20,
+    "losses": 15
+  },
+  {
+    "id": 8,
+    "name": "Shawn",
+    "wins": 18,
+    "losses": 4
+  },
+  {
+    "id": 9,
+    "name": "Collin",
+    "wins": 11,
+    "losses": 0
+  },
+  {
+    "id": 10,
+    "name": "George",
+    "wins": 16,
+    "losses": 12
+  },
+  {
+    "id": 11,
+    "name": "Jason",
+    "wins": 20,
+    "losses": 2
+  },
+  {
+    "id": 12,
+    "name": "Jose",
+    "wins": 6,
+    "losses": 15
+  },
+  {
+    "id": 13,
+    "name": "Joris",
+    "wins": 18,
+    "losses": 15
+  }
+]

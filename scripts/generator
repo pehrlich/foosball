@@ -1,0 +1,94 @@
+#!/usr/bin/env node
+
+var _ = require('underscore');
+var fs = require('fs');
+
+var names = [
+  'PG', 'Michael', 'John', 'Ferdi', 'Ben', 'Felix', 'Philip',
+  'Rafael', 'Shawn', 'Collin', 'George', 'Jason', 'Jose', 'Joris',
+  'Alexander', 'Bernd', 'Jesse', 'Ollie', 'Aaron', 'Christian', 'Flo'
+  ];
+
+var leaderboard = names.map(function (name, id) {
+  return {
+    id: id,
+    name: name,
+    wins: 0,
+    losses: 0
+  }
+});
+
+// Generate 4 unique player ids
+function generateTeams() {
+  var playerIds = [];
+  while (playerIds.length < 4) {
+    var id = _.random(0, names.length - 1);
+    if (_.indexOf(playerIds, id) === -1) {
+      playerIds.push(id);
+    }
+  }
+
+  return {
+    teamA: playerIds.splice(0, 2),
+    teamB: playerIds.splice(0, 2)
+  };
+}
+
+function generateMatchScore() {
+  var teamAScore = _.random(0, 10);
+  var teamBScore;
+
+  while (!teamBScore || teamAScore === teamBScore) {
+    teamBScore = _.random(0, 10);
+  }
+
+  return {
+    teamA: teamAScore,
+    teamB: teamBScore
+  };
+}
+
+function addPlayerWin(playerId) {
+  var player = _.findWhere(leaderboard, {id: playerId});
+  player.wins++;
+}
+
+function addPlayerLoss(playerId) {
+  var player = _.findWhere(leaderboard, {id: playerId});
+  player.losses++;
+}
+
+var matches = _.map(new Array(100), function (nil, i) {
+  var teams = generateTeams();
+  var teamScores = generateMatchScore();
+
+  if (teamScores.teamA > teamScores.teamB) {
+    teams.teamA.forEach(addPlayerWin);
+    teams.teamB.forEach(addPlayerLoss);
+  } else {
+    teams.teamB.forEach(addPlayerWin);
+    teams.teamA.forEach(addPlayerLoss);
+  }
+
+  return {
+    id: i,
+    teamA: teams.teamA,
+    teamB: teams.teamB,
+    scoreA: teamScores.teamA,
+    scoreB: teamScores.teamB
+  };
+});
+
+var dataset = JSON.stringify({
+  users: names,
+  leaderboard: leaderboard,
+  matches: matches
+});
+
+fs.writeFile(__dirname + '/dataset.json', dataset, function(err) {
+  if(err) {
+    return console.log(err);
+  }
+
+  console.log('Wrote dataset.')
+});
