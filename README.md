@@ -15,4 +15,4 @@ Develop
 
 Use
 ---
-Open `build/index.html` in your browser.
+Open [http://localhost:8000](http://localhost:8000).
