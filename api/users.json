@@ -1,7 +1,7 @@
 [
   {
     "id": 0,
-    "name": "PG",
+    "name": "Mat",
     "wins": 1,
     "losses": 7
   },
@@ -31,25 +31,25 @@
   },
   {
     "id": 5,
-    "name": "Felix",
+    "name": "Philipp",
     "wins": 19,
     "losses": 5
   },
   {
     "id": 6,
-    "name": "Philip",
+    "name": "Rafael",
     "wins": 3,
     "losses": 15
   },
   {
     "id": 7,
-    "name": "Rafael",
+    "name": "Shawn",
     "wins": 20,
     "losses": 15
   },
   {
     "id": 8,
-    "name": "Shawn",
+    "name": "Philip",
     "wins": 18,
     "losses": 4
   },
