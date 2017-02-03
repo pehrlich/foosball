@@ -41,7 +41,7 @@ if (process.env.NODE_ENV === 'development') {
     // Falls back to default which is 8080
     port: process.env.PORT,
     // Falls back to default which is localhost
-    host: process.env.IP,
+    host: process.env.IP
   };
 
   // Add hot module replace plugin for development
