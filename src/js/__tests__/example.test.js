@@ -11,7 +11,7 @@ describe('main', function () {
     this.result = this.testFunction();
   })
 
-  it('should have dom element', function () {
+  it('should have the result computed', function () {
     expect(this.result).equal(3);
   });
 
