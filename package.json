@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "description": "A Foosball Leaderboard application",
   "main": "index.html",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mesosphere/foosball"
+  },
   "engines": {
     "node": "7.5.0",
     "npm": "4.1.2"
