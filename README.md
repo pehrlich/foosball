@@ -4,15 +4,15 @@ Mesosphere Foosball
 Install
 -------
 1. `npm install`
-2. `npm build`
 
 Develop
 ----------
-1. `npm install`
-2. `npm start`
-3. `cd build`
-4. `python3 -m http.server` or `python -m SimpleHTTPServer`
+1. `npm start`
+
+Deploy
+----------
+1. `npm run deploy`
 
 Use
 ---
-Open [http://localhost:8000](http://localhost:8000).
+Open [http://localhost:8080](http://localhost:8080).
