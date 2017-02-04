@@ -23,9 +23,7 @@ var plugins = [];
  * Development configuration
  */
 if (process.env.NODE_ENV === 'development') {
-  // Eval-source-map is the same thing as source-map,
-  // Except with caching. Don't use in production.
-  devtool = 'eval-source-map';
+  devtool = 'inline-source-map';
 
   // Point development output path to 'build'
   output.path = path.resolve(__dirname, 'build');
@@ -70,6 +68,9 @@ module.exports = {
         test: /\.js$/,
         use: [{
           loader: 'babel-loader',
+          options: {
+            sourceMap: true
+          }
         }],
         exclude: /node_modules/
       },
