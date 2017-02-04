@@ -1,7 +1,6 @@
 var autoprefixer = require('autoprefixer');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var webpack = require('webpack');
 var path = require('path');
+var webpack = require('webpack');
 
 /**
  * Default configuration
