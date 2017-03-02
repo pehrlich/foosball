@@ -8,7 +8,7 @@ We love foosball here at Mesosphere! We currently have one foosball table that l
 
 ## Exercise 1 (1h 30m)
 
-We’re providing you with an HTML/CSS prototype of what we want the application to look like. Your task will be to add interactivity to the leaderboard. With this interactivity a player would be able to select any player on the leaderboard to view their recent matches on the right pane.
+We’re providing you with an HTML/CSS prototype of what we want the application to look like. Your task will be to add interactivity to the leaderboard. With this interactivity, a player would be able to select any player on the leaderboard to view their recent matches on the right pane.
 
 You will find the prototype here: [https://github.com/mesosphere/foosball](https://github.com/mesosphere/foosball)  
 
