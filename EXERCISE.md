@@ -8,9 +8,7 @@ We love foosball here at Mesosphere! We currently have one foosball table that l
 
 ## Exercise 1 (1h 30m)
 
-We’re providing you with an HTML/CSS prototype of what we want the application to look like. Your task will be to add interactivity to the leaderboard. With this
-
-interactivity a player would be able to select any player on the leaderboard to view their recent matches on the right pane.
+We’re providing you with an HTML/CSS prototype of what we want the application to look like. Your task will be to add interactivity to the leaderboard. With this interactivity, a player would be able to select any player on the leaderboard to view their recent matches on the right pane.
 
 You will find the prototype here: [https://github.com/mesosphere/foosball](https://github.com/mesosphere/foosball)  
 
@@ -19,8 +17,8 @@ You will find the prototype here: [https://github.com/mesosphere/foosball](https
 - The Leaderboard list entries should have a hover state when using mouse or keyboard
 - There should be a selected state when using mouse or keyboard
     - See mock: [http://bit.ly/1BRyHOh](http://bit.ly/1BRyHOh)  
-
-- Set up the functionality to select a player from the leaderboard. For the sake of simplicity, show an alert or log to console when a selection occurs either via keyboard (Enter key) or mouse click.
+- Allow users to select a player from the leaderboard.
+- Selecting a player from the leaderboard displays all of the selected player's matches.
 
 ##### Considerations:
 
@@ -30,11 +28,8 @@ You will find the prototype here: [https://github.com/mesosphere/foosball](https
 
 ##### Review:
 
-- Submit a PR to the repository
-- The team will review your code and comment on the PR
-- We will then review the comments together in a session
-- Expect development centric questions
-- Discuss next steps and future “wants/needs” for the app
+- You will be given 30 minutes to present your solution to the team
+- Expect questions about the details of your implementation
 
 ## Exercise 2 (30m)
 
@@ -46,7 +41,7 @@ You will be reviewing a PR for a feature that another engineer will be submittin
 - Consider having good arguments for requested changes
 - Be diligent
 - Make sure that the PR covers the Acceptance Criteria
-- Nitpick if you need
+- Nitpick if you feel the need to
 
 ##### Deliverables and Review:
 
