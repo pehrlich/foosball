@@ -27,6 +27,7 @@ var findUser = function (id) {
   }
   return null
 };
+// todo - refactor to method called populateSortList(data, ordering)
 var matchList = [];
 
 
@@ -57,14 +58,26 @@ var printMatches = function (matches) {
   document.getElementById('match__list').innerHTML = string;
 };
 
-var populateUserList = function () {
+
+
+var sortUsers = function (users) {
+  if (!users) users = userList;
+  return users.sort(function (a, b) {
+    if (a.wins > b.wins ) return 1;
+    if (b.wins > a.wins ) return -1;
+    return 0;
+  })
+};
+
+var populate = function () {
   'use strict';
 
   // todo error handling
   getData('./api/users.json', function (data) {
     var string = '';
-    for (var i = 0; i < data.length; i++) {
-      userList = data;
+    userList = sortUsers(data);
+
+    for (var i = 0; i < userList.length; i++) {
       string += `<li class="user-list-item" data-user-id="${data[i].id}">
               <span class="leaderboard__name">${data[i].name}</span>
               <span class="leaderboard__stats leaderboard__stats--wins">${data[i].wins}</span>
@@ -81,8 +94,8 @@ var populateUserList = function () {
     matchList = data;
     printMatches();
   });
-
 };
+
 
 // todo - this is a bit of a misnomer, because can contain self as well
 // todo - this method should be tested especially:
@@ -112,7 +125,7 @@ var selectMatch = function (event) {
 document.addEventListener( 'click', selectMatch );
 
 
-populateUserList();
+populate();
 
 
 
