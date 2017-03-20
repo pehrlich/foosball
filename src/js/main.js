@@ -65,7 +65,7 @@ var populateUserList = function () {
     var string = '';
     for (var i = 0; i < data.length; i++) {
       userList = data;
-      string += `<li class="is-in-lead" data-user-id="${data[i].id}">
+      string += `<li class="user-list-item" data-user-id="${data[i].id}">
               <span class="leaderboard__name">${data[i].name}</span>
               <span class="leaderboard__stats leaderboard__stats--wins">${data[i].wins}</span>
               <span class="leaderboard__stats leaderboard__stats--losses">${data[i].losses}</span>
@@ -98,7 +98,7 @@ var containedByClass = function (el, className) {
 };
 
 var selectMatch = function (event) {
-  var listItem = containedByClass(event.target, 'is-in-lead');
+  var listItem = containedByClass(event.target, 'user-list-item');
   if ( !listItem ) return;
 
   var userId = Number(listItem.dataset.userId);
