@@ -65,7 +65,7 @@ var populateUserList = function () {
     var string = '';
     for (var i = 0; i < data.length; i++) {
       userList = data;
-      string += `<li class="is-in-lead" data-match-id="${data[i].id}">
+      string += `<li class="is-in-lead" data-user-id="${data[i].id}">
               <span class="leaderboard__name">${data[i].name}</span>
               <span class="leaderboard__stats leaderboard__stats--wins">${data[i].wins}</span>
               <span class="leaderboard__stats leaderboard__stats--losses">${data[i].losses}</span>
@@ -92,7 +92,6 @@ var populateUserList = function () {
 var containedByClass = function (el, className) {
   while (el) {
     if (el.className === className) return el;
-    // debugger
     el = el.parentElement;
   }
   return false
@@ -102,11 +101,13 @@ var selectMatch = function (event) {
   var listItem = containedByClass(event.target, 'is-in-lead');
   if ( !listItem ) return;
 
-  var id = Number(listItem.dataset.matchId);
+  var userId = Number(listItem.dataset.userId);
 
   printMatches(
-    matchList.filter(function (m) { return m.id === id })
-  )
+    matchList.filter(function (m) {
+      return ( m.teamA.indexOf(userId) != -1) || ( m.teamB.indexOf(userId) != -1)
+    })
+  );
 };
 document.addEventListener( 'click', selectMatch );
 
