@@ -65,8 +65,8 @@ var populateUserList = function () {
     var string = '';
     for (var i = 0; i < data.length; i++) {
       userList = data;
-      string += `<li class="is-in-lead">
-              <span class="leaderboard__name" data-match-id="${data[i].id}">${data[i].name}</span>
+      string += `<li class="is-in-lead" data-match-id="${data[i].id}">
+              <span class="leaderboard__name">${data[i].name}</span>
               <span class="leaderboard__stats leaderboard__stats--wins">${data[i].wins}</span>
               <span class="leaderboard__stats leaderboard__stats--losses">${data[i].losses}</span>
             </li>`;
@@ -84,10 +84,25 @@ var populateUserList = function () {
 
 };
 
-var selectMatch = function (event) {
-  if (event.target.className != 'leaderboard__name') return
+// todo - this is a bit of a misnomer, because can contain self as well
+// todo - this method should be tested especially:
+//       - return false if nowhere in tree or self
+//       - return self if self match
+//       - return parent if parent match
+var containedByClass = function (el, className) {
+  while (el) {
+    if (el.className === className) return el;
+    // debugger
+    el = el.parentElement;
+  }
+  return false
+};
 
-  var id = Number(event.target.dataset.matchId);
+var selectMatch = function (event) {
+  var listItem = containedByClass(event.target, 'is-in-lead');
+  if ( !listItem ) return;
+
+  var id = Number(listItem.dataset.matchId);
 
   printMatches(
     matchList.filter(function (m) { return m.id === id })
