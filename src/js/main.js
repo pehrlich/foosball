@@ -63,8 +63,10 @@ var printMatches = function (matches) {
 var sortUsers = function (users) {
   if (!users) users = userList;
   return users.sort(function (a, b) {
-    if (a.wins > b.wins ) return 1;
-    if (b.wins > a.wins ) return -1;
+    if (a.wins > b.wins ) return -1;
+    if (b.wins > a.wins ) return 1;
+    if (a.losses > b.losses) return 1;
+    if (b.losses > a.losses) return -1;
     return 0;
   })
 };
