@@ -27,7 +27,6 @@ var populateUserList = function () {
   getData('./api/users.json', function (data) {
     var string = '';
     for (var i = 0; i < data.length; i++) {
-      // debugger
       string += `<li class="is-in-lead">
               <span class="leaderboard__name">${data[i].name}</span>
               <span class="leaderboard__stats leaderboard__stats--wins">${data[i].wins}</span>
@@ -35,7 +34,32 @@ var populateUserList = function () {
             </li>`;
     }
     document.getElementById('leaderboard__list').innerHTML = string;
-    // debugger
+  });
+
+  getData('./api/matches.json', function (data) {
+    var string = '';
+    var dataItem;
+    for (var i = 0; i < data.length; i++) {
+      dataItem = data[i];
+      string += `<a href="match.html" class="match-details">
+                  <div class="match-details__team match-details__team--a is-winner">
+                    <header class="match-details__team__header">Team A</header>
+                    <span class="match-details__team__player">${dataItem.teamA[0]}</span>
+                    <span class="match-details__team__player">${dataItem.teamA[1]}</span>
+                    <span class="match-details__team__points">${dataItem.scoreA}</span>
+                  </div>
+                  <div class="match-details__vs">
+                    <span>VS</span>
+                  </div>
+                  <div class="match-details__team match-details__team--b">
+                    <header class="match-details__team__header">Team B</header>
+                    <span class="match-details__team__player">${dataItem.teamB[0]}</span>
+                    <span class="match-details__team__player">${dataItem.teamB[1]}</span>
+                    <span class="match-details__team__points">${dataItem.scoreB}</span>
+                  </div>
+                </a>`;
+    }
+    document.getElementById('match__list').innerHTML = string;
   });
 
 };
