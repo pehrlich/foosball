@@ -80,7 +80,7 @@ var populate = function () {
     userList = sortUsers(data);
 
     for (var i = 0; i < userList.length; i++) {
-      string += `<li class="user-list-item" data-user-id="${data[i].id}">
+      string += `<li class="user-list-item ${i === 0 ? 'is-in-lead' : ''}" data-user-id="${data[i].id}">
               <span class="leaderboard__name">${data[i].name}</span>
               <span class="leaderboard__stats leaderboard__stats--wins">${data[i].wins}</span>
               <span class="leaderboard__stats leaderboard__stats--losses">${data[i].losses}</span>
@@ -106,7 +106,7 @@ var populate = function () {
 //       - return parent if parent match
 var containedByClass = function (el, className) {
   while (el) {
-    if (el.className === className) return el;
+    if (el.classList.contains(className)) return el;
     el = el.parentElement;
   }
   return false
